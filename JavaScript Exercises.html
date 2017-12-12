@@ -55,11 +55,150 @@ alert(stringTest.toUpperCase());
 */
 
 //exercise 7
+/*
 var string1 = "hello";
 var num1 = 1;
 
 var test = string1 + num1;
 alert(test);
+*/
+
+//exercise 8
+/*
+var arrayTest = ['one','two','three'];
+
+alert(arrayTest);
+arrayTest.splice(arrayTest.indexOf('three'),1);
+alert(arrayTest);
+*/
+
+//exercise 9
+/*
+var myObject = {Name :"Matt", Age: 222, occupation: "consultant"};
+checkAge(myObject.Age);
+
+
+function checkAge(age){
+	if(age <40 && age > 20){
+		alert(true);
+	}
+	else{
+		alert(false);
+	}
+}
+*/
+
+//exercise 10 + 11
+/*
+for(var i = 0; i< 11;i++)
+{
+	if(i % 2 != 1)
+	console.log(i);
+}
+*/
+
+//exercise 12
+/*
+function printFizz(){
+console.log("Fizz");
+}
+function printBuzz(){
+console.log("Buzz");
+}
+var maxValue = 101;
+for(var i = 0;i < maxValue;i++){
+	
+	if(i % 3 == 0){
+		printFizz();
+		
+		if(i % 5 == 0){
+			printBuzz();
+		}
+	}
+	else{
+		if(i % 5 == 0){
+			printBuzz();
+		}else{
+		console.log(i);
+		}
+	}
+}
+*/
+
+//exercise 13
+/*
+function testFunction(num){
+	do{
+		if(num % 3 == 0){
+			num = num / 3;
+		}
+		else if(num % 3 == 1){
+			num = (num - 1)/3;
+			console.log("1 was subtracted");
+		}
+		else if(num % 3 == 2){
+			num = (num + 1)/3;
+			console.log("1 was added");
+		}
+	console.log(num)	
+	}while(num != 1)
+}
+testFunction(123);
+*/
+
+//exercise 14
+//not quite finished
+startTripleCheck("syfjijgergggsdfsoigfrrr",0);
+
+
+var noOfTriples = 0;
+
+function startTripleCheck(inString,startIndex){
+	var currentLetter = inString[startIndex];
+	var currentNo = 1;
+	for(var i = startIndex;i < inString.length + 1;i++){
+		console.log("current number: " + currentNo + "	current letter: " + currentLetter);
+		if(inString[i] == currentLetter)
+			{
+				currentNo+=1;
+			}
+			else{
+			currentNo = 1;
+				startTripleCheck(inString, inString[i+1]);
+			}
+			currentLetter = inString[startIndex + i];
+			
+			
+			
+	
+		if(currentNo == 3){
+			noOfTriples += 1;
+			currentNo = 1;
+			
+			startTripleCheck(inString,inString[i+1]);
+			}
+			
+	}
+}
+console.log("number of triples: " + noOfTriples);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
