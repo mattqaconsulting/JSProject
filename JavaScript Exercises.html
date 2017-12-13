@@ -1,5 +1,20 @@
 
 <!--<input type="button" value="Call Function" onclick="changeAge(5);">-->
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<p id="paragraph"></p>
+
+
+
+<form action="/action_page.php">
+TextBox: <input type="text" name="inputText" id = "textbox" value=""><br>
+<input type="submit" value="Create paragraph" onsubmit=createParagraphTag();>
+<input type="submit" value="Submit" onsubmit=changeParagraph();>
+<input type="submit" value="Delete paragraph" onsubmit=deleteParagraph()>
+
 <script>
 //exercise 1
 /*
@@ -147,11 +162,11 @@ testFunction(123);
 */
 
 //exercise 14
-//not quite finished
-startTripleCheck("syfjijgergggsdfsoigfrrr",0);
-
+/*
 
 var noOfTriples = 0;
+
+startTripleCheck("syfjijgergggsdfsooooigfrrr",0);
 
 function startTripleCheck(inString,startIndex){
 	var currentLetter = inString[startIndex];
@@ -182,17 +197,45 @@ function startTripleCheck(inString,startIndex){
 }
 console.log("number of triples: " + noOfTriples);
 
+*/
+
+//exercise 15
+/*
+
+function createParagraphTag(){
+	var paragraph = document.createElement("p");
+	paragraph.className = "paragraph";
+	paragraph.id = "paragraph";
+	paragraph.innerHTML = "test";
+	document.body.appendChild(paragraph);
+	
+	}
 
 
+function changeParagraph(){
+	var paragraph = document.getElementById("paragraph");
+	paragraph.innerHTML = document.getElementById("texbox").innerHTML;,
+	
+}
 
+function deleteParagraph(){
+		removeElement("paragraph");
+}
+*/
 
+//exercise 16
+var requestURL = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json";
+var request = new XMLHttpRequest();
+request.open("GET", requestURL);
+request.responseType = "json";
+request.send();
+request.onload = function(){
+var requestData = request.response;
+var myH1 = document.createElement("h1");
+myH1.textContent = requestData["squadName"];
+document.getElementsByTagName("head")[0].appendChild(myH1);
 
-
-
-
-
-
-
+}
 
 
 
@@ -204,3 +247,7 @@ console.log("number of triples: " + noOfTriples);
 
 
 </script>
+</form>
+
+</body>
+</html>
