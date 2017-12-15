@@ -224,6 +224,7 @@ function deleteParagraph(){
 */
 
 //exercise 16
+
 var requestURL = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json";
 var request = new XMLHttpRequest();
 request.open("GET", requestURL);
@@ -231,14 +232,50 @@ request.responseType = "json";
 request.send();
 request.onload = function(){
 var requestData = request.response;
-var myH1 = document.createElement("h1");
-myH1.textContent = requestData["squadName"];
-document.getElementsByTagName("head")[0].appendChild(myH1);
+var squadName = requestData["squadName"];
+var homeTown = requestData["homeTown"];
+var formed = requestData["formed"];
+var secretBase = requestData["secretBase"];
+var active = requestData["active"];
+console.log(squadName);
+console.log(homeTown);
+console.log(formed);
+console.log(secretBase);
+console.log(active);
+
+var listOfMembers = requestData["members"]
+for(var i = 0; i < listOfMembers.length; i++){
+	console.log(objectMake(listOfMembers[i].name,listOfMembers[i].age,listOfMembers[i].secretIdentity,listOfMembers[i].secretIdentity,listOfMembers[i].powers));
+}
+
+}
+
+function objectMake(name, age, secretIdentity, powers){
+	var object = {};
+	object.name = name;
+	object.age = age;
+	object.secretIdentity = secretIdentity;
+	object.powers = function getPowers(powers){
+		for(var i = 0;i<powers.length;i++){
+		object.powers.join(powers[i]);
+		}
+	}
 
 }
 
 
+/*
+//exercise 17
+var requestURL = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json ";
+var request = new XMLHttpRequest();
+request.open("GET", requestURL);
+request.responseType = "json";
+request.send();
+request.onload = function(){
+var requestData = request.response;
 
+}
+*/
 
 
 
